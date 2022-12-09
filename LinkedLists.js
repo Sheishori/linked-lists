@@ -85,6 +85,21 @@ const LinkedList = () => {
 		return null;
 	};
 
+	const insertAt = (value, index) => {
+		if (index === 0) prepend(value);
+		else {
+			if (_head === null) return console.log('List is empty');
+			let tmp = _head;
+			let nodeIndex = 1;
+			while (nodeIndex !== index && tmp.nextNode !== null) {
+				tmp = tmp.nextNode;
+				nodeIndex += 1;
+			}
+			if (nodeIndex !== index) return console.log('Index beyond lists length');
+			tmp.nextNode = Node(value, tmp.nextNode);
+		}
+	};
+
 	const toString = (node = _head) => {
 		if (node === null) return 'null';
 		return `( ${node.value} ) -> ${toString(node.nextNode)}`;
@@ -100,6 +115,7 @@ const LinkedList = () => {
 		pop,
 		contains,
 		find,
+		insertAt,
 		toString,
 	};
 };
