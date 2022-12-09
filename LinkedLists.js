@@ -40,14 +40,16 @@ const LinkedList = () => {
 	};
 
 	const at = (index) => {
-		let tmp = _head;
-		let nodeIndex = 0;
-		while (nodeIndex !== index && tmp !== null) {
+		if (_head === null) return 'No node at given index';
+		if (index === 0) return _head;
+		let tmp = _head.nextNode;
+		let nodeIndex = 1;
+		while (tmp !== null) {
+			if (nodeIndex === index) return tmp;
 			tmp = tmp.nextNode;
 			nodeIndex += 1;
 		}
-		if (tmp === null) return 'No node at given index';
-		return tmp;
+		return 'No node at given index';
 	};
 
 	const pop = () => {
