@@ -50,12 +50,23 @@ const LinkedList = () => {
 		return tmp;
 	};
 
+	const pop = () => {
+		if (_head === null) return 'Cannot delete null';
+		let tmp = _head;
+		while (tmp.nextNode.nextNode !== null) {
+			tmp = tmp.nextNode;
+		}
+		const popped = tmp.nextNode;
+		tmp.nextNode = null;
+		return popped;
+	};
+
 	const toString = (node = _head) => {
 		if (node === null) return 'null';
 		return `( ${node.value} ) -> ${toString(node.nextNode)}`;
 	};
 
-	return { prepend, append, size, head, tail, at, toString };
+	return { prepend, append, size, head, tail, at, pop, toString };
 };
 
 const newList = LinkedList();
@@ -65,5 +76,9 @@ newList.prepend('0 - Bread');
 //console.log('Size: ', newList.size());
 //console.log('Head: ', newList.head());
 //console.log('Tail: ', newList.tail());
-//console.log(newList.toString());
-console.log(newList.at(2));
+console.log(newList.toString());
+//console.log(newList.at(2));
+console.log(newList.pop());
+console.log(newList.toString());
+console.log(newList.pop());
+console.log(newList.toString());
