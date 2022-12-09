@@ -63,7 +63,8 @@ const LinkedList = () => {
 
 	const contains = (value) => {
 		if (_head === null) return false;
-		let tmp = _head;
+		if (_head.value === value) return true;
+		let tmp = _head.nextNode;
 		while (tmp !== null) {
 			if (tmp.value === value) return true;
 			tmp = tmp.nextNode;
