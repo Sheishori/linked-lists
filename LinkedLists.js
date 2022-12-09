@@ -1,24 +1,24 @@
 import Node from './Node.js';
 
 const LinkedList = () => {
-	let head = null;
+	let _head = null;
 
 	const prepend = (value) => {
-		head = Node(value, head);
+		_head = Node(value, _head);
 	};
 
 	const append = (value) => {
-		if (head === null) prepend(value);
+		if (_head === null) prepend(value);
 		else {
-			let tmp = head;
+			let tmp = _head;
 			while (tmp.nextNode !== null) tmp = tmp.nextNode;
 			tmp.nextNode = Node(value);
 		}
 	};
 
 	const size = () => {
-		if (head === null) return 0;
-		let tmp = head;
+		if (_head === null) return 0;
+		let tmp = _head;
 		let total = 1;
 		while (tmp.nextNode !== null) {
 			tmp = tmp.nextNode;
@@ -27,16 +27,22 @@ const LinkedList = () => {
 		return total;
 	};
 
-	const toString = (node = head) => {
+	const head = () => {
+		if (_head === null) return 'List is empty';
+		return _head;
+	};
+
+	const toString = (node = _head) => {
 		if (node === null) return 'null';
 		return `( ${node.value} ) -> ${toString(node.nextNode)}`;
 	};
 
-	return { prepend, append, size, toString };
+	return { prepend, append, size, head, toString };
 };
 
 const newList = LinkedList();
-newList.append('bread');
 newList.append('cheese');
+newList.append('bread');
+newList.prepend('bread');
 console.log(newList.size());
 console.log(newList.toString());
