@@ -76,11 +76,11 @@ const LinkedList = () => {
 		if (_head === null) return null;
 		if (_head.value === value) return 0;
 		let tmp = _head.nextNode;
-		let index = 1;
+		let nodeIndex = 1;
 		while (tmp !== null) {
-			if (tmp.value === value) return index;
+			if (tmp.value === value) return nodeIndex;
 			tmp = tmp.nextNode;
-			index += 1;
+			nodeIndex += 1;
 		}
 		return null;
 	};
