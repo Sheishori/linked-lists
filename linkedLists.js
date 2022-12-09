@@ -1,8 +1,7 @@
 const linkedListFactory = () => {
-	let head = null;
+	const head = null;
+
 	return {};
 };
 
-const nodeFactory = (value = null, nextNode = null) => {
-	return {value, nextNode};
-};
+const nodeFactory = (value = null, nextNode = null) => ({ value, nextNode });
