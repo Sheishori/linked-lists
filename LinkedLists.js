@@ -32,17 +32,26 @@ const LinkedList = () => {
 		return _head;
 	};
 
+	const tail = () => {
+		if (_head === null) return 'List is empty';
+		let tmp = _head;
+		while (tmp.nextNode !== null) tmp = tmp.nextNode;
+		return tmp;
+	};
+
 	const toString = (node = _head) => {
 		if (node === null) return 'null';
 		return `( ${node.value} ) -> ${toString(node.nextNode)}`;
 	};
 
-	return { prepend, append, size, head, toString };
+	return { prepend, append, size, head, tail, toString };
 };
 
 const newList = LinkedList();
 newList.append('cheese');
 newList.append('bread');
 newList.prepend('bread');
-console.log(newList.size());
+console.log('Size: ', newList.size());
+console.log('Head: ', newList.head());
+console.log('Tail: ', newList.tail());
 console.log(newList.toString());
