@@ -100,6 +100,21 @@ const LinkedList = () => {
 		}
 	};
 
+	const removeAt = (index) => {
+		if (_head === null) return console.log('List is empty');
+		if (index === 0) _head = _head.nextNode;
+		else {
+			let tmp = _head;
+			let nodeIndex = 1;
+			while (nodeIndex !== index && tmp.nextNode.nextNode !== null) {
+				tmp = tmp.nextNode;
+				nodeIndex += 1;
+			}
+			if (nodeIndex !== index) return console.log('No node at given index');
+			tmp.nextNode = tmp.nextNode.nextNode;
+		}
+	};
+
 	const toString = (node = _head) => {
 		if (node === null) return 'null';
 		return `( ${node.value} ) -> ${toString(node.nextNode)}`;
@@ -116,6 +131,7 @@ const LinkedList = () => {
 		contains,
 		find,
 		insertAt,
+		removeAt,
 		toString,
 	};
 };
