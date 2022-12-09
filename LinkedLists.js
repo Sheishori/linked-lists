@@ -1,7 +1,11 @@
 import Node from './Node';
 
 const LinkedList = () => {
-	const head = null;
+	let head = null;
 
-	return {};
+	const prepend = (value) => {
+		head = Node(value, head);
+	};
+
+	return { prepend };
 };
