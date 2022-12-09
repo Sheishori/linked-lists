@@ -53,9 +53,7 @@ const LinkedList = () => {
 	const pop = () => {
 		if (_head === null) return 'Cannot delete null';
 		let tmp = _head;
-		while (tmp.nextNode.nextNode !== null) {
-			tmp = tmp.nextNode;
-		}
+		while (tmp.nextNode.nextNode !== null) tmp = tmp.nextNode;
 		const popped = tmp.nextNode;
 		tmp.nextNode = null;
 		return popped;
