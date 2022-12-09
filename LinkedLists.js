@@ -69,16 +69,4 @@ const LinkedList = () => {
 	return { prepend, append, size, head, tail, at, pop, toString };
 };
 
-const newList = LinkedList();
-newList.append('1 - Butter');
-newList.append('2 - Cheese');
-newList.prepend('0 - Bread');
-//console.log('Size: ', newList.size());
-//console.log('Head: ', newList.head());
-//console.log('Tail: ', newList.tail());
-console.log(newList.toString());
-//console.log(newList.at(2));
-console.log(newList.pop());
-console.log(newList.toString());
-console.log(newList.pop());
-console.log(newList.toString());
+export default LinkedList;
