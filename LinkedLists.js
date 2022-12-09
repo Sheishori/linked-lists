@@ -1,4 +1,4 @@
-import Node from './Node';
+import Node from './Node.js';
 
 const LinkedList = () => {
 	let head = null;
@@ -16,5 +16,15 @@ const LinkedList = () => {
 		}
 	};
 
-	return { prepend, append };
+	const toString = (node = head) => {
+		if (node === null) return 'null';
+		return `( ${node.value} ) -> ${toString(node.nextNode)}`;
+	};
+
+	return { prepend, append, toString };
 };
+
+const newList = LinkedList();
+newList.append('bread');
+newList.append('cheese');
+console.log(newList.toString());
