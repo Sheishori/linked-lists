@@ -1,16 +1,20 @@
 import LinkedList from './LinkedLists.js';
 
 const newList = LinkedList();
-newList.append('Butter');
-newList.append('Cheese');
-newList.prepend('Bread');
+newList.append('1 - Butter');
+newList.append('2 - Cheese');
+newList.prepend('0 - Bread');
+newList.insertAt('3 - Ham', 3);
 //console.log('Size: ', newList.size());
 //console.log('Head: ', newList.head());
 //console.log('Tail: ', newList.tail());
 console.log(newList.toString());
-//console.log(newList.at(2));
+//console.log(newList.at(1));
 //console.log(newList.pop());
 //console.log(newList.toString());
 //console.log(newList.pop());
 //console.log(newList.toString());
-console.log();
+//console.log(newList.contains('0 - Bread'));
+//console.log(newList.find('3 - Ham'));
+newList.removeAt(3);
+console.log(newList.toString());

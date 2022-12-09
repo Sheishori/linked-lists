@@ -3,10 +3,12 @@ import Node from './Node.js';
 const LinkedList = () => {
 	let _head = null;
 
+	// adds a new node containing value to the start of the list
 	const prepend = (value) => {
 		_head = Node(value, _head);
 	};
 
+	// adds a new node containing value to the end of the list
 	const append = (value) => {
 		if (_head === null) prepend(value);
 		else {
@@ -16,6 +18,7 @@ const LinkedList = () => {
 		}
 	};
 
+	// returns the total number of nodes in the list
 	const size = () => {
 		if (_head === null) return 0;
 		let tmp = _head;
@@ -27,11 +30,13 @@ const LinkedList = () => {
 		return total;
 	};
 
+	// returns the first node in the list
 	const head = () => {
 		if (_head === null) return 'List is empty';
 		return _head;
 	};
 
+	// returns the last node in the list
 	const tail = () => {
 		if (_head === null) return 'List is empty';
 		let tmp = _head;
@@ -39,6 +44,7 @@ const LinkedList = () => {
 		return tmp;
 	};
 
+	// returns the node at the given index
 	const at = (index) => {
 		if (_head === null) return 'No node at given index';
 		if (index === 0) return _head;
@@ -52,6 +58,7 @@ const LinkedList = () => {
 		return 'No node at given index';
 	};
 
+	// returns the node at the given index
 	const pop = () => {
 		if (_head === null) return 'Cannot delete null';
 		let tmp = _head;
@@ -61,6 +68,7 @@ const LinkedList = () => {
 		return popped;
 	};
 
+	// returns true if the passed in value is in the list, otherwise returns false
 	const contains = (value) => {
 		if (_head === null) return false;
 		if (_head.value === value) return true;
@@ -72,6 +80,7 @@ const LinkedList = () => {
 		return false;
 	};
 
+	// returns the index of the node containing value, or null if not found
 	const find = (value) => {
 		if (_head === null) return null;
 		if (_head.value === value) return 0;
@@ -85,6 +94,7 @@ const LinkedList = () => {
 		return null;
 	};
 
+	// inserts a new node with the provided value at the given index
 	const insertAt = (value, index) => {
 		if (index === 0) prepend(value);
 		else {
@@ -100,6 +110,7 @@ const LinkedList = () => {
 		}
 	};
 
+	// removes the node at the given index
 	const removeAt = (index) => {
 		if (_head === null) return console.log('List is empty');
 		if (index === 0) _head = _head.nextNode;
@@ -115,6 +126,7 @@ const LinkedList = () => {
 		}
 	};
 
+	// represents all LinkedList nodes as a string
 	const toString = (node = _head) => {
 		if (node === null) return 'null';
 		return `( ${node.value} ) -> ${toString(node.nextNode)}`;
