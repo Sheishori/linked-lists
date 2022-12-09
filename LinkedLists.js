@@ -61,12 +61,22 @@ const LinkedList = () => {
 		return popped;
 	};
 
+	const contains = (value) => {
+		if (_head === null) return false;
+		let tmp = _head;
+		while (tmp !== null) {
+			if (tmp.value === value) return true;
+			tmp = tmp.nextNode;
+		}
+		return false;
+	};
+
 	const toString = (node = _head) => {
 		if (node === null) return 'null';
 		return `( ${node.value} ) -> ${toString(node.nextNode)}`;
 	};
 
-	return { prepend, append, size, head, tail, at, pop, toString };
+	return { prepend, append, size, head, tail, at, pop, contains, toString };
 };
 
 export default LinkedList;
