@@ -72,12 +72,36 @@ const LinkedList = () => {
 		return false;
 	};
 
+	const find = (value) => {
+		if (_head === null) return null;
+		if (_head.value === value) return 0;
+		let tmp = _head.nextNode;
+		let index = 1;
+		while (tmp !== null) {
+			if (tmp.value === value) return index;
+			tmp = tmp.nextNode;
+			index += 1;
+		}
+		return null;
+	};
+
 	const toString = (node = _head) => {
 		if (node === null) return 'null';
 		return `( ${node.value} ) -> ${toString(node.nextNode)}`;
 	};
 
-	return { prepend, append, size, head, tail, at, pop, contains, toString };
+	return {
+		prepend,
+		append,
+		size,
+		head,
+		tail,
+		at,
+		pop,
+		contains,
+		find,
+		toString,
+	};
 };
 
 export default LinkedList;
